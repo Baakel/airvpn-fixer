@@ -1,9 +1,10 @@
 use crate::models::errors::AirError;
 use tracing::info;
-use zbus::{Connection, zvariant::Value};
+use zbus::Connection;
 
 pub async fn renew_bluetit() -> Result<(), AirError> {
     // This didn't work. Think it started the process as something else..?
+    // It was probably due to the process not running as root. This could be a viable alternative
     // let mut sysctl = std::process::Command::new("systemctl");
     // let cmd = sysctl.args(["restart", "bluetit"]);
     // info!("Command returned {:#?}", cmd.output().unwrap());
