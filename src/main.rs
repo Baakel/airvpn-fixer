@@ -19,14 +19,14 @@ async fn main() {
     tokio::time::sleep(tokio::time::Duration::from_secs(10)).await;
     info!("Starting airvpn bluetit fixer");
     'outter: loop {
-        tokio::time::sleep(tokio::time::Duration::from_secs(3)).await;
+        tokio::time::sleep(tokio::time::Duration::from_secs(20)).await;
 
         let client = reqwest::Client::new();
 
         let res = match client
             .post("https://airvpn.org/api/whatismyip/")
             // .bearer_auth(&CONFIG.air_api_key)
-            .timeout(std::time::Duration::from_secs(2))
+            .timeout(std::time::Duration::from_secs(10))
             .send()
             .await
         {
